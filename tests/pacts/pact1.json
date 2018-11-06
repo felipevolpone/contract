@@ -1,0 +1,213 @@
+{
+    "consumer": {
+        "name": "order-split-service"
+    },
+    "provider": {
+        "name": "orders-api"
+    },
+    "interactions": [
+        {
+            "description": "get a seller order",
+            "providerState": "seller order exists",
+            "request": {
+                "method": "get",
+                "path": "/v1/seller-orders/WMT9CE111CDAED0/",
+                "headers": {
+                    "Authorization": "Token 48d13e002cfe03b4e4392205fe5d9cef42781824"
+                }
+            },
+            "response": {
+                "status": 200,
+                "headers": {},
+                "body": {
+                    "approved_at": "2016-09-21T20:30:22Z",
+                    "availability_days": 21,
+                    "branded_store_slug": "olist",
+                    "cancelation_reason": "shipment_delayed",
+                    "cancelation_status": "canceled",
+                    "channel_slug": "walmart",
+                    "channel_store": "walmart",
+                    "code": "WMT9CE111CDAED0",
+                    "count_items": 2,
+                    "created_at": "2016-09-21T20:30:22Z",
+                    "currency": "BRL",
+                    "customer": {
+                        "address": {
+                            "address": "Rua Alagoas",
+                            "city": "Curitiba",
+                            "complement": "casa",
+                            "country": "BRA",
+                            "district": "Guaíra",
+                            "full_address": "Rua Alagoas - casa Guaíra - Curitiba - PR",
+                            "number": "1101",
+                            "reference": "é uma casa grande sozinha , pq nessa rua tem duas casas com o mesmo número",
+                            "state": "PR",
+                            "zip_code": "80630050"
+                        },
+                        "document_number": "02545702919",
+                        "email": "romy.ferro@outlook.com",
+                        "name": "Romy ferro",
+                        "phones": [
+                            {
+                                "phone": "4198635256",
+                                "phone_type": "residential"
+                            }
+                        ]
+                    },
+                    "delivered_customer_date": null,
+                    "estimated_delivery_date": "2016-10-12",
+                    "invoice_danfe_url": "",
+                    "invoice_error_message": "",
+                    "invoice_id": null,
+                    "invoice_issue_date": null,
+                    "invoice_key": "",
+                    "invoice_number": 0,
+                    "invoice_serial_number": 0,
+                    "invoice_source": "",
+                    "invoice_status": "",
+                    "invoice_url": "",
+                    "order_id": "893c08a1-b534-4516-ac70-53eb4abdf714",
+                    "payment_methods": [],
+                    "purchase_timestamp": "2016-09-21T20:30:22Z",
+                    "seller_brand": "",
+                    "seller_email": "",
+                    "seller_id": "cd0d70e0-b217-4cb9-aa4a-bddd42f39c4f",
+                    "seller_name": "Seller cd0d70e0b2174cb9aa4abddd42f39c4f",
+                    "seller_order_history": [],
+                    "seller_order_items": [
+                        {
+                            "availability_days": 21,
+                            "carrier": "Correios",
+                            "channel_slug": "walmart",
+                            "code": "IT001WMT9CE111CDAED0",
+                            "commission_freight_olist": "0.0000",
+                            "commission_product_olist": "0.2000",
+                            "currency": "BRL",
+                            "history": [],
+                            "id": "92c48172-5723-4a74-9400-ad1a436732eb",
+                            "item_commission": "59.80",
+                            "freight_commission": "0.00",
+                            "freight_mode": "41068",
+                            "freight_value": "12.17",
+                            "full_name": "Poltrona Decorativa Iris",
+                            "price": "299.00",
+                            "price_freight_shift": "0.00",
+                            "product_attributes": {},
+                            "product_gtin": "7909389143038",
+                            "product_photo": "https://s3-sa-east-1.amazonaws.com/solidarium/olist.com/upload/9887/original/5e314b54c87c8c9bc89966233869fa01.jpg",
+                            "product_sku": "PROB8BDBC613AF0",
+                            "seller_id": "cd0d70e0-b217-4cb9-aa4a-bddd42f39c4f",
+                            "seller_order": "23186a50-d012-4f85-a8d2-aadeb1ef5c1f",
+                            "seller_product_code": "",
+                            "status": "created",
+                            "total_commission": "59.80"
+                        },
+                        {
+                            "availability_days": 21,
+                            "carrier": "Correios",
+                            "channel_slug": "walmart",
+                            "code": "IT002WMT9CE111CDAED0",
+                            "commission_freight_olist": "0.0000",
+                            "commission_product_olist": "0.2000",
+                            "currency": "BRL",
+                            "history": [],
+                            "id": "d7b1169b-ce2e-4454-9650-658727293eff",
+                            "item_commission": "59.80",
+                            "freight_commission": "0.00",
+                            "freight_mode": "41068",
+                            "freight_value": "12.17",
+                            "full_name": "Poltrona Decorativa Iris",
+                            "price": "299.00",
+                            "price_freight_shift": "0.00",
+                            "product_attributes": {},
+                            "product_gtin": "7909389143038",
+                            "product_photo": "https://s3-sa-east-1.amazonaws.com/solidarium/olist.com/upload/9887/original/5e314b54c87c8c9bc89966233869fa01.jpg",
+                            "product_sku": "PROB8BDBC613AF0",
+                            "seller_id": "cd0d70e0-b217-4cb9-aa4a-bddd42f39c4f",
+                            "seller_order": "23186a50-d012-4f85-a8d2-aadeb1ef5c1f",
+                            "seller_product_code": "",
+                            "status": "created",
+                            "total_commission": "59.80"
+                        }
+                    ],
+                    "shipment": null,
+                    "shipping_limit_date": "2016-10-16T20:30:22Z",
+                    "shipping_status": "overdue",
+                    "status": "approved",
+                    "suspension_reason": "shipment_delay",
+                    "total_amount": "622.34",
+                    "total_commission": "119.60",
+                    "total_freight": "24.34",
+                    "total_freight_commission": "0.00",
+                    "total_freight_shift": "0.00",
+                    "total_items": "598.00",
+                    "total_items_commission": "119.60",
+                    "updated_at": "2017-03-23T18:22:17.786200Z",
+                    "volumes": [
+                        {
+                            "enabled": true,
+                            "id": "33a282ea-760e-4334-b664-980c215f6182",
+                            "status": "carrier_pending",
+                            "seller_order_items": [
+                                {
+                                    "id": "d7b1169b-ce2e-4454-9650-658727293eff"
+                                }
+                            ],
+                            "limit_action_date": null,
+                            "value": "299.00",
+                            "measures": {
+                                "height_unit": "cm",
+                                "height_value": "55.0000",
+                                "id": "86393b41-711f-49bf-a886-6206a1609565",
+                                "length_unit": "cm",
+                                "length_value": "68.0000",
+                                "measures_id": "c8aeeccc-358d-4985-8592-c3c768f5b838",
+                                "weight_unit": "kg",
+                                "weight_value": "14.0000",
+                                "width_unit": "cm",
+                                "width_value": "77.0000"
+                            },
+                            "code": "VOLIZB83CTKHPYJM",
+                            "invoice": null,
+                            "rate": null,
+                            "shipment": null
+                        },
+                        {
+                            "enabled": true,
+                            "id": "94f2946b-6345-460f-9aca-4930345527e9",
+                            "status": "carrier_pending",
+                            "seller_order_items": [
+                                {
+                                    "id": "92c48172-5723-4a74-9400-ad1a436732eb"
+                                }
+                            ],
+                            "limit_action_date": null,
+                            "value": "299.00",
+                            "measures": {
+                                "height_unit": "cm",
+                                "height_value": "55.0000",
+                                "id": "f5d5988d-8054-4114-b1dd-21a1d47f56d9",
+                                "length_unit": "cm",
+                                "length_value": "68.0000",
+                                "measures_id": "c8aeeccc-358d-4985-8592-c3c768f5b838",
+                                "weight_unit": "kg",
+                                "weight_value": "14.0000",
+                                "width_unit": "cm",
+                                "width_value": "77.0000"
+                            },
+                            "code": "VOLM0J36HC10L9YO",
+                            "invoice": null,
+                            "rate": null,
+                            "shipment": null
+                        }
+                    ],
+                    "volumes_status": [
+                        "carrier_pending",
+                        "carrier_pending"
+                    ],
+                    "shipping_quote_group_id": null
+                }
+            }
+        }
+    ]
+}

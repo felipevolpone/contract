@@ -1,35 +1,27 @@
 {
     "consumer": {
-        "name": "order-split-service"
+        "name": "billing-api"
     },
     "provider": {
-        "name": "orders-api"
+        "name": "users-api"
     },
     "interactions": [
         {
-            "description": "get one seller order",
-            "provider_state": "seller order exists",
+            "description": "get one user",
+            "provider_state": "user exists",
             "request": {
                 "method": "get",
-                "path": "/v1/seller-orders/WMT9CE111CDAED0/",
+                "path": "/v1/users/USR9CE111CDAED0/",
                 "headers": {
-                    "Authorization": "Token 48d13e002cfe03b4e4392205fe5d9cef42781824"
+                    "Authorization": "Token xpto"
                 }
             },
             "response": {
                 "status": 200,
                 "headers": {},
                 "body": {
-                    "branded_store_slug": "olist",
-                    "cancelation_reason": "shipment_delayed",
-                    "cancelation_status": "canceled",
-                    "channel_slug": "walmart",
-                    "channel_store": "walmart",
-                    "code": "WMT9CE111CDAED0",
-                    "order_id": "893c08a1-b534-4516-ac70-53eb4abdf714",
-                    "seller_id": "cd0d70e0-b217-4cb9-aa4a-bddd42f39c4f",
-                    "seller_name": "Seller cd0d70e0b2174cb9aa4abddd42f39c4f",
-                    "status": "approved"
+                    "user": {"name": "felipe", "lastname": "volpone"},
+                    "repo": {"host": "github", "name": "py-contract"}
                 }
             }
         }

@@ -47,9 +47,6 @@ class ConsumerRepresentation:
 class Pact:
 
     def __init__(self, pact_path):
-        if pact_path == 'order_split_service__orders_api':
-            pact_path = 'tests/contract_tests/pact1.json'
-
         self.consumer = ConsumerRepresentation(pact_path)
 
     def select(self, interaction_description):
@@ -69,7 +66,8 @@ class Pact:
         self.__assert_values()
 
     def __assert_status(self):
-        print("expected {} ; given {}".format(self.selected_interaction.response.status, self.response.status_code))
+        print("expected {} ; given {}".format(self.selected_interaction.response.status,
+                                              self.response.status_code))
         assert self.response.status_code == self.selected_interaction.response.status
 
     def __assert_fields(self):
@@ -79,7 +77,8 @@ class Pact:
 
     def __assert_values(self):
         for key, value in self.selected_interaction.response.body.items():
-            assert value == self.response.json()[key], "expected {} ; given {}".format(value, self.response.json()[key])
+            message = "expected {} ; given {}".format(value, self.response.json()[key])
+            assert value == self.response.json()[key], message
 
         return self
 
@@ -91,7 +90,7 @@ class Pact:
 
     def call(self, client):
         if self.method != 'get':
-            raise Exception("Only HTTP GET is supported")
+            raise Exception("Only HTTP GET is supported for now")
 
         self.response = getattr(client, self.method)(self.url)
         return self

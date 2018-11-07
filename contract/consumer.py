@@ -48,12 +48,22 @@ class Interaction:
         return self.am_instance
 
     def to_json(self):
-        interaction = InteractionToJson(provider_state=self.interaction_provider_state,
-                                        description=self.description)
+        interaction = InteractionToJson(
+                provider_state=self.interaction_provider_state,
+                description=self.description
+        )
+
         request = RequestToJson(
-            method=self.request_method, path=self.request_path, headers=self.request_headers)
+            method=self.request_method,
+            path=self.request_path,
+            headers=self.request_headers
+        )
+
         response = ResponseToJson(
-            status=self.response_status, body=self.response_body, headers=self.response_headers)
+            status=self.response_status,
+            body=self.response_body,
+            headers=self.response_headers
+        )
 
         interaction_json = interaction.to_json()
         interaction_json['request'] = request.to_json()
@@ -86,7 +96,11 @@ class I:
                 'consumer': {'name': self.consumer_name},
                 'provider': {'name': self.provider_name}}
 
-    def write(self):
-        pact_namefile = '{}__{}'.format(self.consumer_name, self.provider_name).replace('-','_')
-        with open('pacts/{}.json'.format(pact_namefile), 'w') as f:
-            f.write(json.dumps(self.ok(), indent=4))
+    def write(self, pact_dir='pacts'):
+        pact_namefile = (
+                '{}__{}'.
+                format(self.consumer_name, self.provider_name)
+                .replace('-', '_')
+        )
+        with open('{}/{}.json'.format(pact_dir, pact_namefile), 'w') as pact_file:
+            pact_file.write(json.dumps(self.ok(), indent=4))

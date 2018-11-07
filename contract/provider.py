@@ -25,7 +25,7 @@ class Interaction:
     def __init__(self, interaction_as_dict):
         self.__as_dict = interaction_as_dict
         self.description = interaction_as_dict['description']
-        self.provider_state = interaction_as_dict['providerState']
+        self.provider_state = interaction_as_dict['provider_state']
         self.request = Request(interaction_as_dict['request'])
         self.response = Response(interaction_as_dict['response'])
 
@@ -47,21 +47,29 @@ class ConsumerRepresentation:
 class Pact:
 
     def __init__(self, pact_path):
+        if pact_path == 'order_split_service__orders_api':
+            pact_path = 'tests/contract_tests/pact1.json'
+
         self.consumer = ConsumerRepresentation(pact_path)
 
     def select(self, interaction_description):
-        self.selected_interaction = self.consumer.interactions[0]
+        for interaction in self.consumer.interactions:
+            if interaction.description == interaction_description:
+                self.selected_interaction = interaction
+                break
+
+        if self.selected_interaction is None:
+            raise Exception("There is no interaction with name {}".format(interaction_description))
+
         return self
 
     def assert_it(self):
-        if not self._is_ready:
-            raise Exception('you have to call do_it() first')
-
         self.__assert_status()
         self.__assert_fields()
         self.__assert_values()
 
     def __assert_status(self):
+        print("expected {} ; given {}".format(self.selected_interaction.response.status, self.response.status_code))
         assert self.response.status_code == self.selected_interaction.response.status
 
     def __assert_fields(self):
@@ -82,11 +90,10 @@ class Pact:
         return self
 
     def call(self, client):
-        self.response = getattr(client, self.method)(self.url)
-        return self
+        if self.method != 'get':
+            raise Exception("Only HTTP GET is supported")
 
-    def ready(self):
-        self._is_ready = True
+        self.response = getattr(client, self.method)(self.url)
         return self
 
     def debug(self):

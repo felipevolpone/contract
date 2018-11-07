@@ -10,7 +10,7 @@ def test_consumer_representation():
     assert len(consumer.interactions) == 1
     first_interaction = consumer.interactions[0]
 
-    assert first_interaction.description == "get a seller order"
+    assert first_interaction.description == "get one seller order"
     assert first_interaction.provider_state == "seller order exists"
 
     assert first_interaction.request.method == "get"

@@ -73,8 +73,10 @@ Let's explain it by parts.
 `pact = Pact('pacts/billing_api__users_api.json')` creates a pact based on a
 contract file, that is specified by parameter. In `pact.select('get one user')`,
 we are selecting which interaction of the contract we wan't to get to run the
-contract test. `mount_request` does the setup of the request. `call(client_api)`
-will use the data you specified here
+contract test. `call(client_api)` will use the data you specified here
 `with_request('get', '/v1/users/USR9CE111CDAED0/', headers={"Authorization": "Token xpto"}).`
 to call the API with the info provided. Then, `assert_it` will check if the data
 you specified in the contract is the same that the API call returned.
+
+If you are using DRF, the client object will be a instance of the
+`rest_framework.test.APIClient` object.

@@ -1,5 +1,5 @@
 import pytest
-from contract.provider import Pact
+from contract.pact import Pact
 from .conftest import client_http
 
 
@@ -14,7 +14,7 @@ def test_pact_green_path():
     # fake client. it will fake a http call
     client_api = client_http(200, expected)
 
-    pact.select('get one user').mount_request().call(client_api).assert_it()
+    pact.select('get one user').call(client_api).assert_it()
 
 
 def test_pact_select_interaction_doesnot_exists():
@@ -23,4 +23,4 @@ def test_pact_select_interaction_doesnot_exists():
 
     pact = Pact('tests/pacts/pact1.json')
     with pytest.raises(Exception):
-        pact.select('i dont exist').mount_request().call(client_api).assert_it()
+        pact.select('i dont exist').call(client_api).assert_it()

@@ -56,21 +56,21 @@ a `test_contract_billing_api.py` file and copy the content bellow.
 
 ```python
 import pytest
-from contract.provider import Pact
+from contract.provider import Contract
 
-pact = Pact('pacts/billing_api__users_api.json')
+contract = Contract('pacts/billing_api__users_api.json')
 
 expected = {
     "user": {"name": "felipe", "lastname": "volpone"},
 }
 
 client_api = client_http(200, expected)
-pact.select('get one user').mount_request().call(client_api).assert_it()
+contract.select('get one user').call(client_api).assert_it()
 ```
 
 Let's explain it by parts.
 
-`pact = Pact('pacts/billing_api__users_api.json')` creates a pact based on a
+`contract = Contract('pacts/billing_api__users_api.json')` creates a pact based on a
 contract file, that is specified by parameter. In `pact.select('get one user')`,
 we are selecting which interaction of the contract we wan't to get to run the
 contract test. `call(client_api)` will use the data you specified here

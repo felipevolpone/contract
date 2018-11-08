@@ -96,7 +96,7 @@ class I:
                 'consumer': {'name': self.consumer_name},
                 'provider': {'name': self.provider_name}}
 
-    def write(self, pact_dir='pacts'):
+    def write(self, pact_dir='contracts'):
         pact_namefile = (
                 '{}__{}'.
                 format(self.consumer_name, self.provider_name)

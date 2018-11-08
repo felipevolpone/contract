@@ -2,7 +2,7 @@ from contract.provider import ConsumerRepresentation
 
 
 def test_consumer_parse_contract():
-    consumer = ConsumerRepresentation('tests/pacts/pact1.json')
+    consumer = ConsumerRepresentation('tests/contracts/pact1.json')
     assert consumer.pact is not None
     assert consumer.provider_name == "users-api"
     assert consumer.consumer_name == "billing-api"

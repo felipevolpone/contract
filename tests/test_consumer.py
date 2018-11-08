@@ -44,5 +44,5 @@ def test_consumer_json_generation():
                 'provider': {'name': 'users-api'}}
 
     assert result == expected
-    consumer.write(pact_dir='tests/pacts')
-    assert os.path.isfile('tests/pacts/billing_api__users_api.json')
+    consumer.write(pact_dir='tests/contracts')
+    assert os.path.isfile('tests/contracts/billing_api__users_api.json')

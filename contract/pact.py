@@ -3,7 +3,7 @@ from .provider import ConsumerRepresentation
 from pprint import pprint
 
 
-class Pact:
+class Contract:
 
     def __init__(self, pact_path):
         self.consumer = ConsumerRepresentation(pact_path)

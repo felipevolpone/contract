@@ -1,5 +1,8 @@
 # py-contract
 
+### Disclaimer
+This is a **WIP** project.
+
 (For the lack of a better name), py-contract is a tool that helps you to keep
 two the communication between two (or more) parts of your microservice
 architecture "on the same page". e.g.: Making sure that if you change the API
